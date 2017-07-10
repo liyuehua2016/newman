@@ -98,7 +98,7 @@ var PreRequestScriptProcessor = jsface.Class({
         } else {                                                      \
           callback(runner, originalReq, error);                                       \
         }';
-
+        if(!requestScript.endWith(";"))requestScript = requestScript + ";";
         requestScript = sweet + 'String.prototype.has = function(value){ return this.indexOf(value) > -1};' + setEnvHack + requestScript + ep;
 
         try {

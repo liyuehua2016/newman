@@ -137,7 +137,7 @@ var TestResponseHandler = jsface.Class(AbstractResponseHandler, {
         } else {                                                    \
           callback(tests, error);                            \
         }';
-
+    if(!testCases.endWith(";"))testCases = testCases + ";";
     testCases = sweet + 'String.prototype.has = function(value){ return this.indexOf(value) > -1};' + setEnvHack + testCases + ep;
 
     try {
